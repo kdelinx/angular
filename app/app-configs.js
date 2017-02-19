@@ -1,4 +1,4 @@
-angular.module('checkout.configs', [])
+angular.module('redmine.configs', [])
     .factory('httpRequestInterceptor', function ($cookies) {
         return {
             request: function (config) {
@@ -7,35 +7,12 @@ angular.module('checkout.configs', [])
             }
         };
     })
-    .run(function ($rootScope, noUiPutOrderFieldProvider) {
-	    $rootScope.autosave = function(event) {
-            /*console.log(event.currentTarget);*/
-
-           var attrs, prop, type, val;
-            type = event.currentTarget.type;
-            attrs = event.currentTarget.attributes;
-
-            if(type === 'checkbox') {
-                val = event.currentTarget.checked;
-            } else {
-                val = event.currentTarget.value;
-            }
-
-            for (var i=0; i < attrs.length; i++) {
-                if(attrs[i].name === 'ng-model') {
-                    prop = attrs[i].value.replace('order.', '');
-                }
-            }
-
-            var field = {key: prop, value: val};
-            noUiPutOrderFieldProvider.save(field).$promise.then(function () {
-               console.info(field); 
-            });
-        };
+    .run(function ($rootScope) {
+	   console.log('Hello config!');
     })
     .config(function ($httpProvider, $resourceProvider, $interpolateProvider) {
         $httpProvider.interceptors.push('httpRequestInterceptor');
-        $httpProvider.defaults.withCredentials = true;
+        //$httpProvider.defaults.withCredentials = true;
         $httpProvider.defaults.headers.common = {
             'Accept-Language': navigator.language
         };
