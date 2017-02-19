@@ -9,8 +9,9 @@ angular.module('redmine', [
     'redmine.routes',
 
     'noUi.core.utils',
+    'noUi.dataAccess.postToken',
     'noUi.dataAccess.getIssues',
 
+    'ui.controllers.token',
     'ui.controllers.table'
-
 ]);
