@@ -1,21 +1,6 @@
 angular.module('noUi.core.utils', [])
-    .factory('noUiUtils', function ($window, $mdToast) {
+    .factory('noUiUtils', function ($window) {
 
-        /**
-         *
-         * @param type
-         * @param message
-         * @private
-         */
-        function _showToastMessage(type, message) {
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent(message)
-                    .position('top right')
-                    .hideDelay(5000)
-                    .toastClass(type)
-            );
-        }
 
         /**
          * Check if user is authenticated
@@ -160,7 +145,6 @@ angular.module('noUi.core.utils', [])
 
         return {
             isAuthenticated: _isAuthenticated,
-            showToastMessage: _showToastMessage,
             isObjectInArray: _isObjectInArray,
             someWord: _someWord,
             isValidEmail: _isValidEmail,

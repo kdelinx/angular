@@ -44,7 +44,8 @@ gulp.task('js:lib', function () {
       'assets/libs/angular-moment/angular-moment.min.js',
       'assets/libs/angular-resource/angular-resource.min.js',
       'assets/libs/angular-sanitize/angular-sanitize.min.js',
-      'assets/libs/angular-ui-router/release/angular-ui-router.min.js'
+      'assets/libs/angular-ui-router/release/angular-ui-router.min.js',
+      'assets/libs/lodash/dist/lodash.min.js'
       ])
     .pipe(concat('libs.min.js'))
     .pipe(gulp.dest('dist/js'));

@@ -1,3 +1,28 @@
 <div class="redmine-table" ng-controller="uiTableCtrl">
-    lhihiuhuippiu
+    <table class="table table-bordered">
+        <tr>
+            <th>Project</th>
+            <th>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>User</th>
+                        <th ng-repeat="date in queryPeriod track by date.id">[[date.value]]</th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+        <tr ng-repeat="project in projects track by $index">
+            <td>[[$index+1]]. [[project.title]]</td>
+            <td>
+                <table>
+                    <tr ng-repeat="user in project.users track by user.id">
+                        <td>[[user.username]]</td>
+                        <td ng-repeat="issue in user.issues track by issue.due_date">
+                            [[issue.print]]
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </div>

@@ -8,7 +8,15 @@ angular.module('redmine.configs', [])
         };
     })
     .run(function ($rootScope) {
-	   console.log('Hello config!');
+	   $rootScope.Unique = function (A){
+		var n = A.length, k = 0, B = [];
+		for (var i = 0; i < n; i++)
+		 { var j = 0;
+			 while (j < k && B[j] !== A[i]) j++;
+			 if (j == k) B[k++] = A[i];
+		 }
+		return B;
+	};
     })
     .config(function ($httpProvider, $resourceProvider, $interpolateProvider) {
         $httpProvider.interceptors.push('httpRequestInterceptor');
