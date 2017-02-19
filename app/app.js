@@ -8,6 +8,9 @@ angular.module('redmine', [
     'redmine.configs',
     'redmine.routes',
 
-    'noUi.core.utils'
+    'noUi.core.utils',
+    'noUi.dataAccess.getIssues',
+
+    'ui.controllers.table'
 
 ]);
